@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Hate Crimes and Race in the United Sates </title>
+
+
+  <link rel="stylesheet" href="styles/hatecrimes.css">
+  <link rel="stylesheet" href="styles/normalize.css">
+
+  <!-- add the Highcharts script elements here -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/themes/dark-unica.js"></script>
+
+</head>
+<body>
+
+  <h1>Hate Crimes and Race in the United States</h1>
+
+  <h2>By Mikaela Sheerin on October 20, 2017</h2>
+
+  <p>Of all the hate crimes committed in the United States in 2015, 56.9% are motivated by racial biases, according to the FBI - a larger percentage than all other biases, like religion or sexual orientation, combined. Of the offenses that involve racial biases, 52.7% are motivated by anti-black or anti-African American sentiment. 150 years after the U.S. abolished slavery and 50 years after the Civil Rights movement, data show Black Americans still face a disproportionate threat of hate-related violence, lending credibility to the Black Lives Matter credo: in the eyes of many Americans, black lives really do matter less. Although the FBI doesn’t provide data on who commits a majority of offenses against any particular racial group, the fact that 48.4% of all hate crimes in 2015 are committed by whites is telling of the racial tensions present in America today.</p>
+
+  <!-- add the div and the code BELOW this comment -->
+<div id="container" style="width:100%; height:400px;"></div>
+
+<script>
+Highcharts.chart('container', {
+  chart: {
+    type: 'column'
+  },
+  title: {
+    text: 'Hate Crime Incedents Motivated by Racial Bias (2015)'
+  },
+
+  xAxis: {
+    categories: [
+      'Anti-White',
+      'Anti-Black or African American',
+      'Anti-American Indian or Alaska Native',
+      'Anti-Asian',
+      'Anti-Native Hawaiian or Other Pacific Islander',
+      'Anti-Multiple Races, Group',
+      'Anti-Arab',
+      'Anti-Hispanic or Latino',
+      'Anti-Other Race/Ethnicity/Ancestry'
+    ],
+    crosshair: true
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'Incedents'
+    }
+  },
+  tooltip: {
+    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+      '<td style="padding:0"><b>{point.y:1f} </b></td></tr>',
+    footerFormat: '</table>',
+    shared: true,
+    useHTML: true
+  },
+  plotOptions: {
+    column: {
+      pointPadding: 0.2,
+      borderWidth: 0
+    }
+  },
+  series: [{
+    name: 'Racial Bias',
+    data: [613, 1745, 131, 111, 4, 113, 37, 299, 257]
+
+  }]
+});
+
+</script>
+
+<p> Source: Federal Bureau of Investigation, Hate Crime Statistics: <a href="https://ucr.fbi.gov/hate-crime/2015/tables-and-data-declarations/1tabledatadecpdf">Table 1.</a> Incidents, Offenses, Victims, and Known Offenders by Bias Motivation, 2015 </p>
+
+
+<div id="container2" style="width:100%; height:400px;"></div>
+
+
+<script>
+Highcharts.chart('container2', {
+  chart: {
+    type: 'bar'
+  },
+  title: {
+    text: 'Percentage of Hate Crime Offenders by Race'
+  },
+
+  xAxis: {
+    categories: ['White', 'Black or African American', 'Unknown Race','Group of Multiple Races', 'Asian', 'American Indian or Alaska Native', 'Native Hawaiian or Other Pacific Islander'],
+    title: {
+      text: null
+    }
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'Percentage',
+
+    },
+    labels: {
+      overflow: 'justify'
+    }
+  },
+  tooltip: {
+    valueSuffix: ' %'
+  },
+  plotOptions: {
+    bar: {
+      dataLabels: {
+        enabled: true
+      }
+    }
+  },
+
+  series: [{
+    name: 'Percentage of Total Hate Crimes',
+    data: [48.4, 24.3, 16.2, 9.1, 1.0, 0.9, 0.1]
+  }]
+});
+</script>
+<p>Source: Federal Bureau of Investigation, Hate Crime Statistics: <a href="https://ucr.fbi.gov/hate-crime/2015/tables-and-data-declarations/9tabledatadecpdf">Table 9.</a> Known Offenders Race, Ethnicity, and Age, 2015 </p>
+
+  <!-- don't write anything below these required tags -->
+</body>
+</html>
